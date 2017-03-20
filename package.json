@@ -1,0 +1,47 @@
+{
+  "name": "power-meter-updater",
+  "main": "lib/main.js",
+  "version": "2.5.13",
+  "author": "Thomas Malt",
+  "license": "MIT",
+  "description": "Updating and cleaning the redis backend for power-meter",
+  "repository": {
+    "url": "https://github.com/tfmalt/power-meter-updater"
+  },
+  "keywords": [
+    "home automation",
+    "DIY",
+    "make",
+    "raspberry pi",
+    "arduino"
+  ],
+  "private": false,
+  "dependencies": {
+    "args": "^2.3.0",
+    "bluebird": "^3.5.0",
+    "cron-emitter": "^0.2.2",
+    "redis": "^2.7.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "codeclimate-test-reporter": "^0.4.1",
+    "eslint": "^3.18.0",
+    "eslint-plugin-mocha": "^4.8.0",
+    "fakeredis": "^2.0.0",
+    "mocha": "^3.2.0",
+    "mockery": "^2.0.0",
+    "nyc": "^10.1.2",
+  },
+  "engines": {
+    "node": ">= 6.10.x",
+    "npm": ">= 3.10.x"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha **/*test.js"
+  },
+  "bin": {
+    "power-meter-updater": "./bin/updater.js"
+  }
+}

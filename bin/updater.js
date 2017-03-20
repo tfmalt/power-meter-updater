@@ -22,7 +22,7 @@ const log = uc.setupLogger(cfg);
 console.log('Starting power-meter-updater v' + cfg.version);
 
 const client = redis.createClient(cfg.redis);
-const up     = new Updater(client, logger);
+const up     = new Updater(client, log);
 
 client.on('error', (error) => {
   log.error('Got error from redis server: ', error.message);

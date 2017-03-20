@@ -1,7 +1,7 @@
 {
   "name": "power-meter-updater",
   "main": "lib/main.js",
-  "version": "2.5.13",
+  "version": "3.0",
   "author": "Thomas Malt",
   "license": "MIT",
   "description": "Updating and cleaning the redis backend for power-meter",

@@ -34,41 +34,24 @@ describe('UpdateMeter', () => {
     });
   });
 
-  describe('handleMinute', () => {
-    it('should return as promises', () => {
-      // update.db = redis.createClient('foo');
-      return expect(update.handleMinute()).to.eventually.have.all.keys([
-        'average',
-        'watts',
-        'count',
-        'kwh',
-        'max',
-        'min',
-        'time',
-        'timestamp',
-        'total'
-      ]);
-    });
-  });
-
   describe('insertIntoList', () => {
     before( (done) => {
       update.db = redis.createClient('bar');
-      update.db.rpush('minutes', JSON.stringify({count: 318, total: 318}));
-      update.db.rpush('minutes', JSON.stringify({count: 300, total: 300}));
+      update.db.rpush('minutes', JSON.stringify({pulses: 318}));
+      update.db.rpush('minutes', JSON.stringify({pulses: 300}));
       done();
     });
 
-    it('should calculate total as promised', () => {
+    it('should calculate pulses as promised', () => {
       return expect(
         update.insertIntoList('fiveMinutes')
-      ).to.eventually.have.property('total', 618);
+      ).to.eventually.have.property('pulses', 618);
     });
 
     it('should return data as promised', () => {
       return expect(
         update.insertIntoList('fiveMinutes')).to.eventually.have.all.keys([
-          'perMinute', 'time', 'timestamp', 'total', 'kwh'
+          'perMinute', 'time', 'timestamp', 'pulses', 'watt', 'kwh'
         ]);
     });
   });
@@ -83,7 +66,7 @@ describe('UpdateMeter', () => {
       return expect(
         update.getRangeFromDb('minutes', 5)
       ).to.eventually.have.all.keys([
-        'kwh', 'perMinute', 'time', 'timestamp', 'total'
+        'kwh', 'perMinute', 'time', 'timestamp', 'pulses', 'watt'
       ]);
     });
   });

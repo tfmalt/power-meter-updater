@@ -431,9 +431,9 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-cron-emitter@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cron-emitter/-/cron-emitter-1.1.0.tgz#a679bf444368650d0d9de2df9be6c433bc83738b"
+cron-emitter@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/cron-emitter/-/cron-emitter-1.2.2.tgz#79541e5f373ea2a3cd7b7387145c14d65d73b0a8"
   dependencies:
     cron-parser "^2.3.1"
 

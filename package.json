@@ -1,7 +1,7 @@
 {
   "name": "power-meter-updater",
   "main": "lib/main.js",
-  "version": "3.0.2",
+  "version": "3.2.0",
   "author": "Thomas Malt",
   "license": "MIT",
   "description": "Updating and cleaning the redis backend for power-meter",
@@ -19,7 +19,7 @@
   "dependencies": {
     "args": "^2.3.0",
     "bluebird": "^3.5.0",
-    "cron-emitter": "^1.1.0",
+    "cron-emitter": "^1.2.2",
     "redis": "^2.7.0",
     "winston": "^2.3.1"
   },

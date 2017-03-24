@@ -51,7 +51,7 @@ describe('UpdateMeter', () => {
     it('should return data as promised', () => {
       return expect(
         update.insertIntoList('fiveMinutes')).to.eventually.have.all.keys([
-          'perMinute', 'time', 'timestamp', 'pulses', 'watt', 'kwh'
+          'perMinute', 'time', 'timestamp', 'pulses', 'kwh'
         ]);
     });
   });
@@ -66,7 +66,7 @@ describe('UpdateMeter', () => {
       return expect(
         update.getRangeFromDb('minutes', 5)
       ).to.eventually.have.all.keys([
-        'kwh', 'perMinute', 'time', 'timestamp', 'pulses', 'watt'
+        'kwh', 'perMinute', 'time', 'timestamp', 'pulses'
       ]);
     });
   });

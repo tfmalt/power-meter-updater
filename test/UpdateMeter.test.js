@@ -70,4 +70,22 @@ describe('UpdateMeter', () => {
       ]);
     });
   });
+
+  describe('getListSource', () => {
+    it('should return correct info for all known source types', () => {
+      expect(update.getListSource('minutes')).to.deep.equal({source: 'seconds', length: 6});
+      expect(update.getListSource('fiveMinutes')).to.deep.equal({source: 'minutes', length: 5});
+      expect(update.getListSource('halfHours')).to.deep.equal({source: 'minutes', length: 30});
+      expect(update.getListSource('hours')).to.deep.equal({source: 'minutes', length: 60});
+      expect(update.getListSource('sixHours')).to.deep.equal({source: 'hours', length: 6});
+      expect(update.getListSource('days')).to.deep.equal({source: 'hours', length: 24});
+      expect(update.getListSource('weeks')).to.deep.equal({source: 'days', length: 7});
+      expect(update.getListSource('years')).to.deep.equal({source: 'months', length: 12});
+    });
+
+    it('should throw an exception when given an incorrect name', () => {
+      expect(update.getListSource.bind(update, 'foobar')).to.throw(TypeError, /Argument must/);
+      expect(update.getListSource.bind(update)).to.throw(TypeError, /Argument must/);
+    });
+  });
 });
